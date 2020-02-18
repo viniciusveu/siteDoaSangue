@@ -25,7 +25,7 @@
 
     <section class="form hide">
         <h2>Entre na lista de doadores</h2>
-        <form action="/">
+        <form action="/" method="POST">
             <input 
                 type="text" 
                 name="name" 
@@ -49,22 +49,17 @@
         <h2>Últimos <span>doadores</span></h2>
 
         <section class="donors">
-            <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Diego Fernandes</p>
-            </div>
-            <div class="donor">
-                <div class="blood">B+</div>
-                <p>Cleiton Fernandes</p>
-            </div>
-            <div class="donor">
-                <div class="blood">A+</div>
-                <p>Robson Fernandes</p>
-            </div>
-            <div class="donor">
-                <div class="blood">O+</div>
-                <p>José Fernandes</p>
-            </div>
+
+            <!-- Sintaxe nunjucks (template engine) -->
+            {% for donor in donors %}  
+
+                <div class="donor">
+                    <div class="blood">{{donor.blood}}</div>
+                    <p>{{donor.name}}</p>
+                </div>
+
+            {% endfor %}
+
         </section>
     </main>
 
